@@ -9,17 +9,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      # Checke den Code aus
       - name: Check out repository code
         uses: actions/checkout@v3
 
+      # Richte Python ein
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.x
 
+      # Installiere Abhängigkeiten
       - name: Install dependencies
         run: pip install pytest
 
+      # Führe die Tests aus
       - name: Run tests
-        run: |
-          echo "Test erfolgreich"
+        run: pytest
